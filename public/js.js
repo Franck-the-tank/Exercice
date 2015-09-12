@@ -21,3 +21,6 @@ details1 += quayHotel.getAvailability();
 // var elHotel1 = document.getElementById('hotel1');
 // elHotel1.textContent =details1;
 document.write(details1)
+
+quayHotel.pool = true
+document.write(quayHotel.pool)
