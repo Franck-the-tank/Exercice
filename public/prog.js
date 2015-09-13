@@ -9,7 +9,7 @@ var hotel = {
   roomRate: 240,
   discount: 15,
 
-  offerPrice: fuction() {
+  offerPrice: function() {
     var offerRate = this.roomRate * ((100 - this.discount) / 100);
     return offerRate;
   }
@@ -32,4 +32,4 @@ specialRate = document.getElementById('specialRate');
 hotelName.textContent = hotel.name;
 roomRate.textContent = '$' + hotel.roomRate.toFixed(2);
 // this toFixed(n) function transforms a number into a string with n decimals
-specialRate.textContent = '$' + hotel.offerPrice()
+specialRate.textContent = '$' + hotel.offerPrice();
