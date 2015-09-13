@@ -6,7 +6,7 @@ var hotel = {
   // CAREFUL we don't put "=" in the definition of an object.
   // NOT even for the functions
   name: 'Park',
-  roomRate: 240,
+  roomRate: 300,
   discount: 15,
 
   offerPrice: function() {
@@ -33,3 +33,34 @@ hotelName.textContent = hotel.name;
 roomRate.textContent = '$' + hotel.roomRate.toFixed(2);
 // this toFixed(n) function transforms a number into a string with n decimals
 specialRate.textContent = '$' + hotel.offerPrice();
+
+// SECOND PART: display the expiration date
+
+var today = new Date()
+var expiryMsg;
+var elEnds;
+// it puts automatically today's date into today var
+
+
+// The function will automatically set the expiration date 7 display
+// from the today date and take the value of the month and day from an array
+var offerExpires = function(today) {
+  var weekFromToday, day, date, month, year, dayNames, monthNames;
+
+  dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  weekFromToday = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+  day = dayNames[weekFromToday.getDay()];
+  date = weekFromToday.getDate();
+  month = monthNames[weekFromToday.getMonth()];
+  year = weekFromToday.getFullYear();
+
+  expiryMsg = "Offer expires next "
+  expiryMsg += day + '<br />(' + date + ' ' + month + ' ' + year + ')';
+  return expiryMsg;
+}
+
+elEnds = document.getElementById('offerEnds');
+elEnds.innerHTML = offerExpires(today);
